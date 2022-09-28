@@ -52,6 +52,8 @@ export default class Player {
     }
   }
   draw(context) {
+    if (this.game.debug)
+      context.strokeRect(this.x, this.y, this.width, this.height);
     context.drawImage(
       this.image,
       this.frameX * this.width,
@@ -72,4 +74,13 @@ export default class Player {
     this.game.speed = this.game.maxSpeed * speed;
     this.currentState.enter();
   }
+  //   checkCollision() {
+  //     this.game.enemies.forEach(enemy => {
+  //       if() {
+  // //colision detected
+  //       } else {
+  // //no collision
+  //       }
+  //     })
+  //   }
 }
