@@ -5,16 +5,18 @@ import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from './enemies.js';
 import { UI } from './UI.js';
 
 window.addEventListener('load', function () {
+  const loading = document.querySelector('#loading');
+  loading.style.display = 'none';
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
-  canvas.width = 500;
-  canvas.height = 500;
+  canvas.width = 900;
+  canvas.height = 600;
 
   class Game {
     constructor(width, height) {
       this.width = width;
       this.height = height;
-      this.groundMargin = 80;
+      this.groundMargin = 50;
       this.speed = 0;
       this.maxSpeed = 3;
       this.background = new Background(this);
@@ -23,16 +25,25 @@ window.addEventListener('load', function () {
       this.UI = new UI(this);
       this.enemies = [];
       this.particles = [];
+      this.collisions = [];
+      this.floatingMessages = [];
       this.maxParticles = 50;
       this.enemyTimer = 0;
       this.enemyInterval = 1000;
-      this.debug = true;
+      this.debug = false;
       this.score = 0;
       this.fontColor = 'black';
+      this.time = 0;
+      this.winningScore = 40;
+      this.maxTime = 30000;
+      this.gameOver = false;
+      this.lives = 5;
       this.player.currentState = this.player.states[0];
       this.player.currentState.enter();
     }
     update(deltaTime) {
+      this.time += deltaTime;
+      if (this.time > this.maxTime) this.gameOver = true;
       this.background.update();
       this.player.update(this.input.keys, deltaTime);
       //handleEnemies
@@ -44,17 +55,32 @@ window.addEventListener('load', function () {
       }
       this.enemies.forEach((enemy) => {
         enemy.update(deltaTime);
-        if (enemy.markedForDeletion)
-          this.enemies.splice(this.enemies.indexOf(enemy), 1);
+      });
+      //handle messages
+      this.floatingMessages.forEach((msg) => {
+        msg.update();
       });
       //handle particles
       this.particles.forEach((particle, index) => {
         particle.update();
-        if (particle.markedForDeletion) this.particles.splice(index, 1);
       });
       if (this.particles.length > this.maxParticles) {
-        this.particles = this.particles.slice(0, this.maxParticles);
+        this.particles.length = this.maxParticles;
       }
+      //handle collisions sprites
+      this.collisions.forEach((collision, index) => {
+        collision.update(deltaTime);
+      });
+      this.enemies = this.enemies.filter((enemy) => !enemy.markedForDeletion);
+      this.particles = this.particles.filter(
+        (particle) => !particle.markedForDeletion
+      );
+      this.collisions = this.collisions.filter(
+        (collision) => !collision.markedForDeletion
+      );
+      this.floatingMessages = this.floatingMessages.filter(
+        (msg) => !msg.markedForDeletion
+      );
     }
     draw(context) {
       this.background.draw(context);
@@ -65,6 +91,12 @@ window.addEventListener('load', function () {
       this.particles.forEach((particle) => {
         particle.draw(context);
       });
+      this.collisions.forEach((collision) => {
+        collision.draw(context);
+      });
+      this.floatingMessages.forEach((msg) => {
+        msg.draw(context);
+      });
       this.UI.draw(context);
     }
     addEnemy() {
@@ -72,6 +104,19 @@ window.addEventListener('load', function () {
         this.enemies.push(new GroundEnemy(this));
       else if (this.speed > 0) this.enemies.push(new ClimbingEnemy(this));
       this.enemies.push(new FlyingEnemy(this));
+    }
+    restart() {
+      this.player.restart();
+      this.background.restart();
+      this.score = 0;
+      this.time = 0;
+      this.gameOver = false;
+      this.lives = 5;
+      this.enemies = [];
+      this.particles = [];
+      this.collisions = [];
+      this.floatingMessages = [];
+      animate(0);
     }
   }
 
@@ -86,7 +131,16 @@ window.addEventListener('load', function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     game.update(deltaTime);
     game.draw(ctx);
-    requestAnimationFrame(animate);
+    if (!game.gameOver) requestAnimationFrame(animate);
   }
   animate(0);
 });
+
+// function restartGame() {
+//   player.restart();
+//   background.restart();
+//   enemies = [];
+//   score = 0;
+//   gameOver = false;
+//   animate(0);
+// }
