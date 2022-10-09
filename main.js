@@ -135,12 +135,3 @@ window.addEventListener('load', function () {
   }
   animate(0);
 });
-
-// function restartGame() {
-//   player.restart();
-//   background.restart();
-//   enemies = [];
-//   score = 0;
-//   gameOver = false;
-//   animate(0);
-// }

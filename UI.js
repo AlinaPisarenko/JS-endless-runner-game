@@ -12,6 +12,7 @@ export class UI {
     context.shadowColor = 'white';
     context.shadowBlur = 0;
     context.font = this.fontSize + 'px ' + this.fontFamily;
+    context.fontColor = 'white';
     context.textAlign = 'left';
     context.fillStyle = this.game.fontColor;
     context.fillText('Score:' + this.game.score, 20, 50);
