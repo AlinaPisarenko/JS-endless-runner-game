@@ -43,17 +43,17 @@ export class FlyingEnemy extends Enemy {
     this.width = 130.5;
     this.height = 104.5;
     this.x = this.game.width + Math.random() * this.game.width * 0.5;
-    this.y = Math.random() * this.game.height * 0.5;
+    this.y = Math.random() * this.game.height * 0.4;
     this.speedX = Math.random() + 1;
     this.speedY = 0;
     this.maxFrame = 5;
     this.image = document.getElementById('enemy_fly');
     this.angle = 0;
-    this.va = Math.random() * 0.1 + 0.1;
+    this.va = Math.random() * 0.1+ 0.1;
   }
   update(deltaTime) {
     super.update(deltaTime);
-    this.angle += this.va;
+    this.angle += this.va*0.3;
     this.y += Math.sin(this.angle);
   }
 }
@@ -63,10 +63,10 @@ export class GroundEnemy extends Enemy {
     super();
     this.game = game;
 
-    this.width = 120.125;
-    this.height = 90;
+    this.width = 292;
+    this.height = 410;
     this.x = this.game.width;
-    this.y = this.game.height - this.height - this.game.groundMargin /1.6;
+    this.y = this.game.height - this.height/3.5- this.game.groundMargin ;
     this.image = document.getElementById('enemy_plant');
     this.speedX = 0;
     this.speedY = 0;
@@ -81,8 +81,8 @@ export class GroundEnemy extends Enemy {
       this.height,
       this.x,
       this.y,
-      this.width*1.7,
-      this.height*1.7
+      this.width*0.5,
+      this.height*0.5
     );
   }
 }
@@ -94,7 +94,7 @@ export class ClimbingEnemy extends Enemy {
     this.width = 155;
     this.height = 87.5;
     this.x = this.game.width;
-    this.y = Math.random() * this.game.height * 0.5;
+    this.y = Math.random() * this.game.height * 0.4;
     this.image = document.getElementById('enemy_spider');
     this.speedX = 0;
     this.speedY = Math.random() > 0.5 ? 1 : -1;

@@ -18,7 +18,7 @@ export default class Player {
     this.x = 50;
     this.y = this.game.height - this.height - this.game.groundMargin;
     this.vy = 0;
-    this.weight = 1;
+    this.weight = 0.5;
     this.image = document.getElementById('player');
     this.frameX = 0;
     this.frameY = 0;
@@ -88,8 +88,8 @@ export default class Player {
       this.height,
       this.x,
       this.y,
-      this.width * 1.5,
-      this.height * 1.5
+      this.width * 1.6,
+      this.height * 1.6
     );
   }
   onGround() {

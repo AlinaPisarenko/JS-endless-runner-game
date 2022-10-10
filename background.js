@@ -27,8 +27,8 @@ class Layer {
 export class Background {
   constructor(game) {
     this.game = game;
-    this.width = 1000;
-    this.height = 600;
+    this.width = 1560;
+    this.height = 840;
 
     // this.layerImage11 = document.getElementById('layer11');
     // this.layerImage10 = document.getElementById('layer10');

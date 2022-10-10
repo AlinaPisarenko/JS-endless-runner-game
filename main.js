@@ -5,18 +5,31 @@ import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from './enemies.js';
 import { UI } from './UI.js';
 
 window.addEventListener('load', function () {
-  const loading = document.querySelector('#loading');
-  loading.style.display = 'none';
+  const btn = document.getElementById('gooey-button')
+    const canvas = document.getElementById('canvas1');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 1460;
+    canvas.height = 840;
+    let image = document.getElementById('home');
+    ctx.drawImage(image, 0,0, canvas.width, canvas.height)
+  btn.addEventListener('click', () => playMode())
+  });
+
+
+function playMode() {
+  // const loading = document.querySelector('#loading');
+  const btn = document.getElementById('gooey-button')
+  btn.style.display = 'none';
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
-  canvas.width = 900;
-  canvas.height = 600;
+  canvas.width = 1460;
+  canvas.height = 840;
 
   class Game {
     constructor(width, height) {
       this.width = width;
       this.height = height;
-      this.groundMargin = 120;
+      this.groundMargin = 140;
       this.speed = 0;
       this.maxSpeed = 3;
       this.background = new Background(this);
@@ -134,4 +147,7 @@ window.addEventListener('load', function () {
     if (!game.gameOver) requestAnimationFrame(animate);
   }
   animate(0);
-});
+}
+
+
+  

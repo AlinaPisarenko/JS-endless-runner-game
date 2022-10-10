@@ -1,10 +1,13 @@
 export class UI {
   constructor(game) {
     this.game = game;
-    this.fontSize = 36;
+    this.fontSize = 52;
+    this.x = 0;
+    this.y = 0;
 
-    this.fontFamily = 'Slackey';
+    this.fontFamily = 'Creepster';
     this.livesImage = document.getElementById('heart');
+    this.image = document.getElementById('game-over');
   }
   draw(context) {
     context.save();
@@ -17,10 +20,10 @@ export class UI {
     context.fillStyle = this.game.fontColor;
     context.fillText('Score:' + this.game.score, 20, 50);
     context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
-    context.fillText('Time: ' + (this.game.time * 0.001).toFixed(1), 20, 80);
+    context.fillText('Time: ' + (this.game.time * 0.001).toFixed(1), 20, 94);
     //lives
     for (let i = 0; i < this.game.lives; i++) {
-      context.drawImage(this.livesImage, 28 * i * 1.1 + 20, 95, 25, 25);
+      context.drawImage(this.livesImage, 32 * i * 1.1 + 880, 20, 30, 30);
     }
 
     //game over
@@ -41,17 +44,18 @@ export class UI {
           this.game.height * 0.5 + 20
         );
       } else {
-        context.fillText(
-          'Oh no!',
-          this.game.width * 0.5,
-          this.game.height * 0.5 - 20
-        );
-        context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
-        context.fillText(
-          'Good luck next time',
-          this.game.width * 0.5,
-          this.game.height * 0.5 + 20
-        );
+        context.drawImage(this.image,this.x,this.y,this.game.width,this.game.height)
+        // context.fillText(
+        //   'Oh no!',
+        //   this.game.width * 0.5,
+        //   this.game.height * 0.5 - 20
+        // );
+        // context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
+        // context.fillText(
+        //   'Good luck next time',
+        //   this.game.width * 0.5,
+        //   this.game.height * 0.5 + 20
+        // );
       }
     }
     context.restore();

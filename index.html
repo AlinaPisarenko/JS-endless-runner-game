@@ -7,14 +7,14 @@
     <title>JS Game</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Slackey&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <canvas id="canvas1"></canvas>
+
     <img id="player" src="assets/player.png" alt="player" id="playerImage" />
 
     <!-- <img src="assets/bg3/6.png" alt="5" id="layer6" />
@@ -72,12 +72,52 @@
     <img src="assets/bg2/11.png" alt="1" id="layer0" /> -->
 
     <img src="assets/enemy_ghost.png" alt="fly" id="enemy_fly" />
-    <img src="assets/enemy_ground_zombie.png" alt="plant" id="enemy_plant" />
+    <img src="assets/enemy_zombie.png" alt="plant" id="enemy_plant" />
     <img src="assets/enemy_spider.png" alt="spider" id="enemy_spider" />
     <img src="assets/fire2.png" alt="fire" id="fire" />
     <img src="assets/boom.png" alt="boom" id="boom" />
     <img src="assets/heart5.png" alt="heart" id="heart" />
-    <h1 id="loading">LOADING...</h1>
+    <img src="assets/gameover.png" alt="game over" id="game-over" />
+    <img src="assets/home.png" alt="home" id="home" />
+    <!-- <button id="button-74" class="button-74" role="button">Button 74</button> -->
+
+  
+    
+    <button id="gooey-button">
+     START
+      <span class="bubbles">
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+        <span class="bubble"></span>
+      </span>
+    </button>
+
+    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="gooey">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+          <feColorMatrix
+            in="blur"
+            type="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+            result="highContrastGraphic"
+          />
+          <feComposite
+            in="SourceGraphic"
+            in2="highContrastGraphic"
+            operator="atop"
+          />
+        </filter>
+      </defs>
+    </svg>
     <script type="module" src="main.js"></script>
   </body>
 </html>
