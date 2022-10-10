@@ -88,8 +88,8 @@ export default class Player {
       this.height,
       this.x,
       this.y,
-      this.width * 1.3,
-      this.height * 1.3
+      this.width * 1.5,
+      this.height * 1.5
     );
   }
   onGround() {
@@ -143,10 +143,8 @@ export default class Player {
     this.frameX = 0;
     this.frameY = 5;
     this.maxFrame = 4;
-
     this.frameTimer = 0;
     this.speed = 0;
-
     this.currentState = this.states[0];
   }
 }

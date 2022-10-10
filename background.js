@@ -41,15 +41,15 @@ export class Background {
     this.layerImage3 = document.getElementById('layer3');
     this.layerImage2 = document.getElementById('layer2');
     this.layerImage1 = document.getElementById('layer1');
-    // this.layerImage0 = document.getElementById('layer0');
+    this.layerImage0 = document.getElementById('layer0');
 
-    // this.layer0 = new Layer(
-    //   this.game,
-    //   this.width,
-    //   this.height,
-    //   0,
-    //   this.layerImage0
-    // );
+    this.layer0 = new Layer(
+      this.game,
+      this.width,
+      this.height,
+      0,
+      this.layerImage0
+    );
     this.layer1 = new Layer(
       this.game,
       this.width,
@@ -128,7 +128,7 @@ export class Background {
     //   this.layerImage11
     // );
     this.BackgroundLayers = [
-      // this.layer0,
+      this.layer0,
       this.layer1,
       this.layer2,
       this.layer3,

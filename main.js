@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
     constructor(width, height) {
       this.width = width;
       this.height = height;
-      this.groundMargin = 50;
+      this.groundMargin = 120;
       this.speed = 0;
       this.maxSpeed = 3;
       this.background = new Background(this);
@@ -32,7 +32,7 @@ window.addEventListener('load', function () {
       this.enemyInterval = 1000;
       this.debug = false;
       this.score = 0;
-      this.fontColor = 'black';
+      this.fontColor = "#c690cf";
       this.time = 0;
       this.winningScore = 40;
       this.maxTime = 30000;

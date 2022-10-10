@@ -66,25 +66,25 @@ export class GroundEnemy extends Enemy {
     this.width = 120.125;
     this.height = 90;
     this.x = this.game.width;
-    this.y = this.game.height - this.height - this.game.groundMargin / 2;
+    this.y = this.game.height - this.height - this.game.groundMargin /1.6;
     this.image = document.getElementById('enemy_plant');
     this.speedX = 0;
     this.speedY = 0;
     this.maxFrame = 7;
   }
-  // draw(context) {
-  //   context.drawImage(
-  //     this.image,
-  //     this.frameX * this.width,
-  //     0,
-  //     this.width,
-  //     this.height,
-  //     this.x,
-  //     this.y,
-  //     this.width,
-  //     this.height
-  //   );
-  // }
+  draw(context) {
+    context.drawImage(
+      this.image,
+      this.frameX * this.width,
+      0,
+      this.width,
+      this.height,
+      this.x,
+      this.y,
+      this.width*1.7,
+      this.height*1.7
+    );
+  }
 }
 
 export class ClimbingEnemy extends Enemy {
