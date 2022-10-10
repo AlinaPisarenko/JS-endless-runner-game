@@ -30,8 +30,8 @@ class Enemy {
       this.height,
       this.x,
       this.y,
-      this.width,
-      this.height
+      this.width*1.3,
+      this.height*1.3
     );
   }
 }
@@ -46,8 +46,8 @@ export class FlyingEnemy extends Enemy {
     this.y = Math.random() * this.game.height * 0.4;
     this.speedX = Math.random() + 1;
     this.speedY = 0;
-    this.maxFrame = 5;
-    this.image = document.getElementById('enemy_fly');
+  this.image = document.getElementById('enemy_fly');    this.maxFrame = 5;
+  
     this.angle = 0;
     this.va = Math.random() * 0.1+ 0.1;
   }
@@ -66,7 +66,7 @@ export class GroundEnemy extends Enemy {
     this.width = 292;
     this.height = 410;
     this.x = this.game.width;
-    this.y = this.game.height - this.height/3.5- this.game.groundMargin ;
+    this.y = this.game.height - this.height/2.5- this.game.groundMargin ;
     this.image = document.getElementById('enemy_plant');
     this.speedX = 0;
     this.speedY = 0;
@@ -81,8 +81,8 @@ export class GroundEnemy extends Enemy {
       this.height,
       this.x,
       this.y,
-      this.width*0.5,
-      this.height*0.5
+      this.width*0.6,
+      this.height*0.6
     );
   }
 }
@@ -109,8 +109,8 @@ export class ClimbingEnemy extends Enemy {
   draw(context) {
     super.draw(context);
     context.beginPath();
-    context.moveTo(this.x + this.width / 2, 0);
-    context.lineTo(this.x + this.width / 2, this.y + 20);
+    context.moveTo(this.x + this.width*1.3 / 2, 0);
+    context.lineTo(this.x + this.width*1.3 / 2, this.y + 20);
     context.stroke();
   }
 }

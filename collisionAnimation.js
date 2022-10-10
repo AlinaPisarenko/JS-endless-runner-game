@@ -15,6 +15,8 @@ export class CollisionAnimation {
     this.fps = Math.random() * 10 + 5;
     this.frameInterval = 1000 / this.fps;
     this.frameTimer = 0;
+    this.sound = new Audio();
+    this.sound.src = './assets/nutfall.flac';
   }
   draw(context) {
     context.drawImage(
@@ -30,6 +32,7 @@ export class CollisionAnimation {
     );
   }
   update(deltaTime) {
+    if (this.frameX === 0) this.sound.play();
     this.x -= this.game.speed;
     if (this.frameTimer > this.frameInterval) {
       this.frameX++;

@@ -4,7 +4,12 @@ import { Background } from './background.js';
 import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from './enemies.js';
 import { UI } from './UI.js';
 
+
+
 window.addEventListener('load', function () {
+  let sound = new Audio();
+  sound.src = './assets/woods.wav';
+  sound.play();
   const btn = document.getElementById('gooey-button')
     const canvas = document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
@@ -17,7 +22,6 @@ window.addEventListener('load', function () {
 
 
 function playMode() {
-  // const loading = document.querySelector('#loading');
   const btn = document.getElementById('gooey-button')
   btn.style.display = 'none';
   const canvas = document.getElementById('canvas1');
@@ -29,7 +33,7 @@ function playMode() {
     constructor(width, height) {
       this.width = width;
       this.height = height;
-      this.groundMargin = 140;
+      this.groundMargin = 200;
       this.speed = 0;
       this.maxSpeed = 3;
       this.background = new Background(this);

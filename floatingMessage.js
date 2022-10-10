@@ -12,15 +12,15 @@ export class FloatingMessage {
     this.x += (this.targetX - this.x) * 0.03;
     this.y += (this.targetY - this.y) * 0.03;
     this.timer++;
-    if (this.timer > 100) this.markedForDeletion = true;
+    if (this.timer > 130) this.markedForDeletion = true;
   }
   draw(context) {
     context.shadowOffsetX = 2;
     context.shadowOffsetY = 2;
     context.shadowColor = 'white';
     context.shadowBlur = 0;
-    context.font = '20px Slackey';
-    context.fillStyle = 'black';
+    context.font = '40px Slackey';
+    context.fillStyle = '#c690cf';
     context.fillText(this.value, this.x - 2, this.y - 2);
   }
 }

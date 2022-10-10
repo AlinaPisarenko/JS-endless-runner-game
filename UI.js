@@ -1,7 +1,7 @@
 export class UI {
   constructor(game) {
     this.game = game;
-    this.fontSize = 52;
+    this.fontSize = 72;
     this.x = 0;
     this.y = 0;
 
@@ -18,12 +18,12 @@ export class UI {
     context.font = this.fontSize + 'px ' + this.fontFamily;
     context.textAlign = 'left';
     context.fillStyle = this.game.fontColor;
-    context.fillText('Score:' + this.game.score, 20, 50);
+    context.fillText('Score:' + this.game.score, 20, 76);
     context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
-    context.fillText('Time: ' + (this.game.time * 0.001).toFixed(1), 20, 94);
+    context.fillText('Time: ' + (this.game.time * 0.001).toFixed(1), 20, 136);
     //lives
     for (let i = 0; i < this.game.lives; i++) {
-      context.drawImage(this.livesImage, 32 * i * 1.1 + 880, 20, 30, 30);
+      context.drawImage(this.livesImage, 36 * i * 1.3 + 1200, 20, 40, 40 );
     }
 
     //game over

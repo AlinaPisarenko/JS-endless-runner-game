@@ -88,8 +88,8 @@ export default class Player {
       this.height,
       this.x,
       this.y,
-      this.width * 1.6,
-      this.height * 1.6
+      this.width * 2,
+      this.height * 2
     );
   }
   onGround() {
@@ -103,9 +103,9 @@ export default class Player {
   checkCollision() {
     this.game.enemies.forEach((enemy) => {
       if (
-        enemy.x < this.x + this.width &&
-        enemy.x + enemy.width > this.x &&
-        enemy.y < this.y + this.height &&
+        enemy.x < this.x + this.width*2 &&
+        enemy.x + enemy.width*1.3 > this.x &&
+        enemy.y < this.y + this.height*2 &&
         enemy.y + enemy.height > this.y
       ) {
         //colision detected
@@ -113,8 +113,8 @@ export default class Player {
         this.game.collisions.push(
           new CollisionAnimation(
             this.game,
-            enemy.x + enemy.width * 0.5,
-            enemy.y + enemy.height * 0.5
+            enemy.x + enemy.width ,
+            enemy.y + enemy.height
           )
         );
         if (
@@ -122,9 +122,9 @@ export default class Player {
           this.currentState === this.states[5]
         ) {
           this.game.score++;
-          this.game.floatingMessages.push(
-            new FloatingMessage('+1', enemy.x, enemy.y, 150, 50)
-          );
+          // this.game.floatingMessages.push(
+          //   new FloatingMessage('+1', enemy.x, enemy.y, 250, 50)
+          // );
         } else {
           this.setState(6, 0);
           if (this.game.score > 0) this.game.score -= 1;
