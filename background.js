@@ -29,12 +29,6 @@ export class Background {
     this.game = game;
     this.width = 1560;
     this.height = 840;
-
-    // this.layerImage11 = document.getElementById('layer11');
-    // this.layerImage10 = document.getElementById('layer10');
-    // this.layerImage9 = document.getElementById('layer9');
-    // this.layerImage8 = document.getElementById('layer8');
-    // this.layerImage7 = document.getElementById('layer7');
     this.layerImage6 = document.getElementById('layer6');
     this.layerImage5 = document.getElementById('layer5');
     this.layerImage4 = document.getElementById('layer4');
@@ -92,41 +86,6 @@ export class Background {
       0.8,
       this.layerImage6
     );
-    // this.layer7 = new Layer(
-    //   this.game,
-    //   this.width,
-    //   this.height,
-    //   0.9,
-    //   this.layerImage7
-    // );
-    // this.layer8 = new Layer(
-    //   this.game,
-    //   this.width,
-    //   this.height,
-    //   1,
-    //   this.layerImage8
-    // );
-    // this.layer9 = new Layer(
-    //   this.game,
-    //   this.width,
-    //   this.height,
-    //   1.1,
-    //   this.layerImage9
-    // );
-    // this.layer10 = new Layer(
-    //   this.game,
-    //   this.width,
-    //   this.height,
-    //   1.2,
-    //   this.layerImage10
-    // );
-    // this.layer11 = new Layer(
-    //   this.game,
-    //   this.width,
-    //   this.height,
-    //   1.3,
-    //   this.layerImage11
-    // );
     this.BackgroundLayers = [
       this.layer0,
       this.layer1,
@@ -134,12 +93,7 @@ export class Background {
       this.layer3,
       this.layer4,
       this.layer5,
-      this.layer6,
-      // this.layer7,
-      // this.layer8,
-      // this.layer9,
-      // this.layer10,
-      // this.layer11,
+      this.layer6
     ];
   }
   update() {

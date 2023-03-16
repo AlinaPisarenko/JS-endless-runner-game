@@ -11,19 +11,21 @@ window.addEventListener('load', function () {
   sound.src = './assets/woods.wav';
   sound.play();
   const btn = document.getElementById('gooey-button')
-    const canvas = document.getElementById('canvas1');
-    const ctx = canvas.getContext('2d');
-    canvas.width = 1460;
-    canvas.height = 840;
-    let image = document.getElementById('home');
-    ctx.drawImage(image, 0,0, canvas.width, canvas.height)
+  const canvas = document.getElementById('canvas1');
+  const ctx = canvas.getContext('2d');
+  canvas.width = 1460;
+  canvas.height = 840;
+  let image = document.getElementById('home');
+  ctx.drawImage(image, 0,0, canvas.width, canvas.height)
   btn.addEventListener('click', () => playMode())
   });
 
 
 function playMode() {
   const btn = document.getElementById('gooey-button')
+  let h1 = document.getElementById('title');
   btn.style.display = 'none';
+  h1.style.display = 'none'
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
   canvas.width = 1460;
