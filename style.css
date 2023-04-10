@@ -13,12 +13,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100vw;
-  /* max-height: 100%; */
-  height: 100vh;
+  max-height: 100%;
+
   
-  z-index: 800;
-  object-fit: cover;
-  /* overflow-y: scroll; */
+  z-index: 900;
   background-color: transparent;
 
 }
@@ -29,12 +27,25 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100vw;
-
   /* height: 100%; */
+  height: 260vh;
   overflow-y: scroll;
-  z-index: 700;
+  z-index: 900;
+  object-fit: cover;
 
   background-color: transparent;
+}
+
+#canvas3 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1100;
+  object-fit: cover;
+
 }
 
 img {
@@ -62,13 +73,47 @@ height: 200vh;
 } */
 
 h1 {
-  color: rgb(0, 0, 0);
+  color: #d2afda;
   font-family: 'Creepster', cursive;
   font-size: 8rem;
   position: absolute;
   z-index: 1000;
   top: 40vh;
   left: 3vw;
+}
+
+h3 {
+  color: #d2afda;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 200;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  position: absolute;
+  z-index: 1000;
+  top: 56vh;
+  left: 3vw;
+}
+
+#rules {
+  color: #d2afda;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 200;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  position: absolute;
+  z-index: 1000;
+  top: 105vh;
+  left: 3vw;
+}
+
+#keys {
+  position: absolute;
+  z-index: 1200;
+  top: 125vh;
+  left: 3vw;
+  width: 22rem;
+
+ display: block;
 }
 
 /* button {
@@ -89,18 +134,18 @@ svg {
 
 #gooey-button {
 transition: all 0.1s ease-in-out;
-  z-index: 1000;
+  z-index: 1300;
   padding: 1.2rem;
   font-size: 24px;
   width: 20vw;
   border: none;
-  color: #000000;
+
   filter: url('#gooey');
   position: relative;
-  top: 62vh;
+  top: 154vh;
   left: 3vw;
-  background-color: #8C57C6;
-  color: rgb(0, 0, 0);
+  background-color: #6E1984;
+  color: #d2afda;
 }
 #gooey-button:focus {
   outline: none;
@@ -113,7 +158,7 @@ transition: all 0.1s ease-in-out;
   right: 0;
 }
 #gooey-button .bubbles .bubble {
-  background-color:#8C57C6;
+  background-color:#6E1984;
   border-radius: 100%;
   position: absolute;
   top: 0;
@@ -214,7 +259,7 @@ transition: all 0.1s ease-in-out;
 #gooey-button:hover {
   cursor: pointer;
   background: rgb(0, 0, 0);
-  color: #B484DD;
+  color: #d2afda;
 }
 #gooey-button:hover .bubble {
   background: rgb(0, 0, 0);
@@ -464,9 +509,25 @@ transition: all 0.1s ease-in-out;
 }
 
 
+@media only screen and (max-width: 1300px)  {
+  h1 {
+    font-size: 5.6rem;
+    top: 45vh;
+  }
+
+  #gooey-button {
+    transition: all 0.1s ease-in-out;
+      top: 58vh;
+      left: 3vw;
+      padding: 0.6rem;
+      font-size: 16px;
+    }
+}
+
+
 @media only screen and (max-width: 900px)  {
   h1 {
-    font-size: 3.8rem;
+    font-size: 4rem;
     top: 45vh;
   }
 
@@ -481,7 +542,7 @@ transition: all 0.1s ease-in-out;
 
 @media only screen and (max-width: 600px)  {
   h1 {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
   }
 
   #gooey-button {
@@ -492,3 +553,4 @@ transition: all 0.1s ease-in-out;
       font-size: 12px;
     }
 }
+

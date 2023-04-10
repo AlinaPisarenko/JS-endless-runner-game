@@ -4,20 +4,32 @@ import { Background } from './background.js';
 import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from './enemies.js';
 import { UI } from './UI.js';
 
-
+const canvasBack = document.getElementById('canvas2');
+const canvasFront = document.getElementById('canvas3');
+const canvas = document.getElementById('canvas1');
+const btn = document.getElementById('gooey-button')
+const h1 = document.getElementById('title');
+const info = document.getElementById('instructions');
+const keys = document.getElementById('keys');
+const rules = document.getElementById('rules');
 
 window.addEventListener('load', function () {
   let sound = new Audio();
   sound.src = './assets/woods.wav';
   sound.play();
-  const btn = document.getElementById('gooey-button')
-  const canvas = document.getElementById('canvas1');
-  const ctx = canvas.getContext('2d');
+  // const btn = document.getElementById('gooey-button')
+  // const canvas = document.getElementById('canvas1');
+  // const ctx = canvas.getContext('2d');
 
-  const canvasBack = document.getElementById('canvas2');
+  // const canvasBack = document.getElementById('canvas2');
   const ctxBack = canvasBack.getContext('2d');
   canvasBack.width = 1460;
-  canvasBack.height = 2600;
+  canvasBack.height = 2400;
+
+  // const canvasFront = document.getElementById('canvas3');
+  const ctxFront = canvasFront.getContext('2d');
+  canvasFront.width = 1460;
+  canvasFront.height = 840;
 
 
   canvas.width = 1460;
@@ -25,16 +37,26 @@ window.addEventListener('load', function () {
   let image = document.getElementById('home-back');
   let imageFront = document.getElementById('home-front');
   ctxBack.drawImage(image, 0,0, canvasBack.width, canvasBack.height)
-  ctx.drawImage(imageFront, 0,0, canvas.width, canvas.height)
-  btn.addEventListener('click', () => playMode())
+  // ctx.drawImage(imageFront, 0,0, canvas.width, canvas.height)
+  ctxFront.drawImage(imageFront, 0,0, canvasFront.width, canvasFront.height)
+  btn.addEventListener('click', playMode)
   });
 
 
 function playMode() {
-  const btn = document.getElementById('gooey-button')
-  let h1 = document.getElementById('title');
+  // const btn = document.getElementById('gooey-button')
+  // let h1 = document.getElementById('title');
+
+  // const canvasBack = document.getElementById('canvas2');
+  // const canvasFront = document.getElementById('canvas3');
+  canvasBack.style.display = 'none'
+  canvasFront.style.display = 'none'
   btn.style.display = 'none';
-  h1.style.display = 'none'
+  h1.style.display = 'none';
+  info.style.display = 'none';
+  keys.style.display = 'none';
+  rules.style.display = 'none'
+  
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
   canvas.width = 1460;
