@@ -13,10 +13,19 @@ window.addEventListener('load', function () {
   const btn = document.getElementById('gooey-button')
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
+
+  const canvasBack = document.getElementById('canvas2');
+  const ctxBack = canvasBack.getContext('2d');
+  canvasBack.width = 1460;
+  canvasBack.height = 2600;
+
+
   canvas.width = 1460;
   canvas.height = 840;
-  let image = document.getElementById('home');
-  ctx.drawImage(image, 0,0, canvas.width, canvas.height)
+  let image = document.getElementById('home-back');
+  let imageFront = document.getElementById('home-front');
+  ctxBack.drawImage(image, 0,0, canvasBack.width, canvasBack.height)
+  ctx.drawImage(imageFront, 0,0, canvas.width, canvas.height)
   btn.addEventListener('click', () => playMode())
   });
 
