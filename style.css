@@ -258,11 +258,11 @@ transition: all 0.1s ease-in-out;
 }
 #gooey-button:hover {
   cursor: pointer;
-  background: rgb(0, 0, 0);
-  color: #d2afda;
+  color: rgb(0, 0, 0);
+  background: #d2afda;
 }
 #gooey-button:hover .bubble {
-  background: rgb(0, 0, 0);
+  background: #d2afda;
  
 }
 
