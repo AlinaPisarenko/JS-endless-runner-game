@@ -21,6 +21,7 @@ export class UI {
     context.fillText('Score:' + this.game.score, 20, 76);
     context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
     context.fillText('Time: ' + (this.game.time * 0.001).toFixed(1), 20, 136);
+    
     //lives
     for (let i = 0; i < this.game.lives; i++) {
       context.drawImage(this.livesImage, 36 * i * 1.3 + 1200, 20, 40, 40 );

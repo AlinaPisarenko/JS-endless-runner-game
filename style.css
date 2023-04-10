@@ -108,7 +108,7 @@ h3 {
 
 #keys {
   position: absolute;
-  z-index: 1200;
+  z-index: 1000;
   top: 126vh;
   left: 2vw;
   width: 28rem;
@@ -518,11 +518,29 @@ transition: all 0.1s ease-in-out;
   }
 
   #gooey-button {
-    transition: all 0.1s ease-in-out;
-      top: 58vh;
+      transition: all 0.1s ease-in-out;
+      top: 160vh;
       left: 3vw;
-      padding: 0.6rem;
-      font-size: 16px;
+      width: 28vw;
+      padding: 1.2rem;
+      font-size: 24px;
+    }
+
+    h3 { 
+      font-size: 1.6rem;
+    }
+    
+    #rules {
+      font-size: 1.6rem;
+      top: 105vh;
+      left: 3vw;
+    }
+    
+    #keys {
+      position: absolute;
+      top: 126vh;
+      left: 2vw;
+      width: 26rem;
     }
 }
 
@@ -535,10 +553,23 @@ transition: all 0.1s ease-in-out;
 
   #gooey-button {
     transition: all 0.1s ease-in-out;
-      top: 58vh;
+    top: 155vh;
       left: 3vw;
-      padding: 0.6rem;
-      font-size: 16px;
+      padding: 0.8rem;
+
+      font-size: 24px;
+    }
+    #rules {
+      font-size: 1.5rem;
+      top: 105vh;
+      left: 3vw;
+    }
+    
+    #keys {
+      position: absolute;
+      top: 126vh;
+      left: 2vw;
+      width: 22rem;
     }
 }
 
@@ -549,10 +580,24 @@ transition: all 0.1s ease-in-out;
 
   #gooey-button {
     transition: all 0.1s ease-in-out;
-      top: 55vh;
+    top: 146vh;
       left: 3vw;
-      padding: 0.4rem;
-      font-size: 12px;
+      padding: 0.6rem;
+      font-size: 18px;
+    }
+
+    #rules {
+      font-size: 1.1rem;
+      font-weight: 200;
+      top: 105vh;
+      left: 3vw;
+    }
+    
+    #keys {
+      position: absolute;
+      top: 120vh;
+      left: 2vw;
+      width: 16rem;
     }
 }
 
